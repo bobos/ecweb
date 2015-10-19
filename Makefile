@@ -16,9 +16,10 @@ CI_OTP = OTP-18.0.3 OTP-18.1
 
 OTP_DEPS = crypto
 
-DEPS = cowlib ranch
+DEPS = cowlib ranch jiffy
 dep_cowlib = git https://github.com/ninenines/cowlib master
 dep_ranch = git https://github.com/ninenines/ranch 1.1.0
+dep_jiffy = git https://github.com/davisp/jiffy.git master
 
 TEST_DEPS = ct_helper gun
 dep_ct_helper = git https://github.com/extend/ct_helper master

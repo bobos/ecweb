@@ -1,0 +1,15 @@
+%% Feel free to use, reuse and abuse the code in this file.
+
+{application, ecweb, [
+	{description, "WebServer for Erlang Championship."},
+	{vsn, "1"},
+	{modules, []},
+	{registered, [ecweb_sup]},
+	{applications, [
+		kernel,
+		stdlib,
+		cowboy
+	]},
+	{mod, {ecweb_app, []}},
+	{env, []}
+]}.

@@ -1,0 +1,1 @@
+erl -smp enable -sname ecweb -pa ebin -pa ../ebin -pa ../deps/cowlib/ebin -pa ../deps/ranch/ebin -pa ../deps/jiffy/ebin -eval 'application:start(crypto), application:start(ranch), application:start(cowlib), application:start(jiffy), application:start(cowboy), application:start(ecweb).'
