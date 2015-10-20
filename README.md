@@ -1,50 +1,87 @@
-Cowboy
+About
+======
+Cowboy depends on Erlang OTP R18
+
+How To Run It
+======
+./build
+./app/start
+
+server is listening on port 8080
+
+REST APIs
 ======
 
-Cowboy is a small, fast and modular HTTP server written in Erlang.
+create a table:
+request:
+http POST serveraddress:8080/tablename
 
-Goals
------
+response:
+success: 
+    status code: 200 
+    body: "ok"
+fail: 
+    status code: 400 
+    body: fail reason in plain text
 
-Cowboy aims to provide a **complete** HTTP stack in a **small** code base.
-It is optimized for **low latency** and **low memory usage**, in part
-because it uses **binary strings**.
+delete a table:
+request:
+http DELETE serveraddress:8080/tablename
 
-Cowboy provides **routing** capabilities, selectively dispatching requests
-to handlers written in Erlang.
+response:
+success: 
+    status code: 200 
+    body: "ok"
+fail: 
+    status code: 400 
+    body: fail reason in plain text
 
-Because it uses Ranch for managing connections, Cowboy can easily be
-**embedded** in any other application.
+insert a record:
+request:
+http POST serveraddress:8080/tablename
+body: {key: value}
 
-No parameterized module. No process dictionary. **Clean** Erlang code.
+response:
+success: 
+    status code: 200 
+    body: "ok"
+fail: 
+    status code: 400 
+    body: fail reason in plain text
 
-Sponsors
---------
+update a record:
+request:
+http UPDATE serveraddress:8080/tablename
+body: {key: value}
 
-The project is currently sponsored by
-[Kato.im](https://kato.im).
+response:
+success: 
+    status code: 200 
+    body: "ok"
+fail: 
+    status code: 400 
+    body: fail reason in plain text
 
-The SPDY implementation was sponsored by
-[LeoFS Cloud Storage](http://www.leofs.org).
+lookup a record:
+request:
+http GET serveraddress:8080/tablename/key
 
-Online documentation
---------------------
+response:
+success: 
+    status code: 200 
+    body: {key: value}
+fail: 
+    status code: 400 
+    body: fail reason in plain text
 
- *  [User guide](http://ninenines.eu/docs/en/cowboy/HEAD/guide)
- *  [Function reference](http://ninenines.eu/docs/en/cowboy/HEAD/manual)
+dump table:
+request:
+http GET serveraddress:8080/tablename
 
-Offline documentation
----------------------
-
- *  While still online, run `make docs`
- *  Function reference man pages available in `doc/man3/` and `doc/man7/`
- *  Run `make install-docs` to install man pages on your system
- *  Full documentation in Markdown available in `doc/markdown/`
- *  Examples available in `examples/`
-
-Getting help
-------------
-
- *  Official IRC Channel: #ninenines on irc.freenode.net
- *  [Mailing Lists](http://lists.ninenines.eu)
- *  [Commercial Support](http://ninenines.eu/support)
+response:
+success: 
+    status code: 200 
+    body: [{key: value}]
+fail: 
+    status code: 400 
+    body: fail reason in plain text
